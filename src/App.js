@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import emailjs from '@emailjs/browser';
+
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import './index.css';
@@ -17,6 +19,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   useEffect(() => {
+    // emailjs.init("A7K7RLFvoYZgqXPc1");
     const aos_init = () => {
       AOS.init({
         once: true,
@@ -30,7 +33,7 @@ function App() {
     });
   }, []);
 
-  useDocTitle("MLD | Molad e Konsult - Bespoke Web and Mobile Applications");
+  useDocTitle("동양 미라클");
 
   return (
     <>

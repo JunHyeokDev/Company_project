@@ -1,98 +1,137 @@
 import React from 'react';
-import img from '../images/web.svg'; 
+import img from '../images/web.svg';
 import img2 from '../images/app.svg';
 import img3 from '../images/hosting.svg';
 import img4 from '../images/consultation.svg';
+import productImage from '../images/product-image.png';
+import productEffect from '../images/effect_of_product.png';
+
+import saunaImage1 from '../images/sauna-image-1.png';
+import saunaImage2 from '../images/sauna-image-2.png';
+import saunaImage3 from '../images/sauna-image-3.png';
+import saunaImage4 from '../images/sauna-image-4.png';
+
+import ProductComparisonTable from './ProductComparisonTable';
+
+const emphasizeText = (text) => {
+    const wordsToEmphasize = [
+        '대중목욕탕 기피현상', '편리한 시간대', '간편하고 위생적으로, 안락하게',
+        '시너지 효과', '농가소득 배가', '대중 목욕시설 기피 해소', '긴요한 제품',
+        '세계 최초 개발된 제품', '홈 쇼핑에 기획상품으로 시판', '광고의 효과를 도모',
+        '온라인과 판촉을 병행', '사회적 기업', '별도의 영업계획', '적극적으로 홍보',
+        '시장을 점유', '해외 시장을 개척'
+    ];
+
+    return text.split(' ').map((word, index) => {
+        if (wordsToEmphasize.some(phrase => word.includes(phrase))) {
+            return <span key={index} className="text-black-600 font-semibold">{word} </span>;
+        }
+        return word + ' ';
+    });
+};
 
 const Services = () => {
-
     return (
-        <div id="services" className="bg-gray-100 py-12" >
+        <div id="services" className="bg-gray-100 py-12">
             <section data-aos="zoom-in-down">
-                    <div className="my-4 py-4">
-                        <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold">services</h2>
-                        
-                        <div className='flex justify-center'>
-                            <div className='w-24 border-b-4 border-blue-900'></div>
-                        </div>
-                        <h2 className="mt-4 mx-12 text-center text-xl lg:text-2xl font-semibold text-blue-900">We are deeply committed to the growth and success of our clients.</h2>
+                <div className="my-4 py-4">
+                    <h2 className="my-2 text-center text-3xl text-green-900 uppercase font-bold">제품 소개</h2>
+                    <div className='flex justify-center'>
+                        <div className='w-24 border-b-4 border-green-900'></div>
                     </div>
+                </div>
 
-                    <div className="px-12" data-aos="fade-down" data-aos-delay="600">
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                            
-                            <div className="bg-white transition-all ease-in-out duration-400  overflow-hidden text-gray-700 hover:bg-gray-500 hover:text-white rounded-lg shadow-2xl p-3 group">
-                                <div className="m-2 text-justify text-sm">
-                                <img alt="card img" className="rounded-t group-hover:scale-[1.15] transition duration-1000 ease-in-out" src={img} />
-                                    <h2 className="font-semibold my-4 text-2xl text-center">Web Development</h2>
-                                    <p className="text-md font-medium">
-                                        We specialize in creating and optimizing high-quality, custom websites for businesses and organizations of all sizes. Building mobile-friendly and easy-to-use websites and applications for clients.
-                                    </p>
-                                </div>
+                <div className="px-12" data-aos="fade-down" data-aos-delay="600">
+                    <h2 className="mt-4 mx-12 text-center text-xl lg:text-2xl font-semibold text-green-900">약쑥 좌훈 겸용 비데기</h2>
+
+                    <div className="bg-white rounded-lg shadow-xl p-8 flex flex-col md:flex-row">
+                        <div className="md:w-1/2 pr-8">
+                            <div className="w-full h-80 mb-4 overflow-hidden">
+                                <img src={productImage} alt="약쑥 좌훈 겸용 비데기" className="w-full h-full object-contain" />
                             </div>
-
-                            <div className="bg-white transition-all ease-in-out duration-400  overflow-hidden text-gray-700 hover:bg-gray-500 hover:text-white rounded-lg shadow-2xl p-3 group">
-                                <div className="m-2 text-justify text-sm">
-                                <img alt="card img" className="rounded-t group-hover:scale-[1.15] transition duration-1000 ease-in-out" src={img2} />
-                                    <h2 className="font-semibold my-4 text-2xl text-center">Mobile App Development</h2>
-                                    <p className="text-md font-medium">
-                                        We develop high-quality, custom cross-platform mobile applications that are robust and optimized for performance, scalability, and accessibility.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="bg-white transition-all ease-in-out duration-400  overflow-hidden text-gray-700 hover:bg-gray-500 hover:text-white rounded-lg shadow-2xl p-3 group">
-                                <div className="m-2 text-justify text-sm">
-                                    <img alt="card img" className="rounded-t group-hover:scale-[1.15] transition duration-1000 ease-in-out" src={img3} />
-                                    <h2 className="font-semibold my-4 text-2xl text-center ">Domain and Hosting Services</h2>
-                                    <p className="text-md font-medium">
-                                        We provide domain registration and web hosting services to individuals and organizations to enable them gain visibility in the digital space.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="bg-white transition-all ease-in-out duration-400  overflow-hidden text-gray-700 hover:bg-gray-500 hover:text-white rounded-lg shadow-2xl p-3 group">
-                                <div className="m-2 text-justify text-sm">
-                                <img alt="card img" className="rounded-t group-hover:scale-[1.15] transition duration-1000 ease-in-out" src={img4} />
-                                    <h2 className="font-semibold my-4 text-2xl text-center ">General IT Consultations</h2>
-                                    <p className="text-md font-medium">
-                                        Our IT consultations service provides expert guidance and support for businesses and individuals looking to optimize their technology solutions.
-                                    </p>
-                                </div>
-                            </div>                    
-                        </div>
-                    </div>
-            </section>
-
-            <section>
-                <div className="m-auto max-w-6xl p-2 md:p-12 h-5/6">
-                    <div className="flex flex-col-reverse lg:flex-row py-8 justify-between lg:text-left" data-aos="zoom-out">
-                        <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
-                            <div className='text-blue-900 mb-4'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" className='fill-current'><path d="M2 12h2a7.986 7.986 0 0 1 2.337-5.663 7.91 7.91 0 0 1 2.542-1.71 8.12 8.12 0 0 1 6.13-.041A2.488 2.488 0 0 0 17.5 7C18.886 7 20 5.886 20 4.5S18.886 2 17.5 2c-.689 0-1.312.276-1.763.725-2.431-.973-5.223-.958-7.635.059a9.928 9.928 0 0 0-3.18 2.139 9.92 9.92 0 0 0-2.14 3.179A10.005 10.005 0 0 0 2 12zm17.373 3.122c-.401.952-.977 1.808-1.71 2.541s-1.589 1.309-2.542 1.71a8.12 8.12 0 0 1-6.13.041A2.488 2.488 0 0 0 6.5 17C5.114 17 4 18.114 4 19.5S5.114 22 6.5 22c.689 0 1.312-.276 1.763-.725A9.965 9.965 0 0 0 12 22a9.983 9.983 0 0 0 9.217-6.102A9.992 9.992 0 0 0 22 12h-2a7.993 7.993 0 0 1-.627 3.122z"></path><path d="M12 7.462c-2.502 0-4.538 2.036-4.538 4.538S9.498 16.538 12 16.538s4.538-2.036 4.538-4.538S14.502 7.462 12 7.462zm0 7.076c-1.399 0-2.538-1.139-2.538-2.538S10.601 9.462 12 9.462s2.538 1.139 2.538 2.538-1.139 2.538-2.538 2.538z"></path></svg>
-                            </div>
-                            <h3 className="text-3xl  text-blue-900 
-                            font-bold">We <span className='font-black'>Build</span></h3>
-                            <div>
-                                <p className='my-3 text-xl text-gray-600 font-semibold'>
-                                    With over 10 years experience in software analysis and design and a deep understanding of the latest IT trends and solutions, we provide customized recommendations and strategies to help you improve your operations, reduce costs, and increase efficiency.
-                                </p>
+                            <div className="w-full h-80 overflow-hidden">
+                                <img src={productEffect} alt="약쑥 좌훈 겸용 비데기" className="w-full h-full object-contain" />
                             </div>
                         </div>
-                        <div className="lg:w-1/2 flex flex-col lg:mx-4 justify-center">
-                            <div className='text-blue-900 mb-4'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" className='fill-current'><path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path></svg>
-                            </div>
-                            <h3 className="text-3xl  text-blue-900 font-bold">We <span className='font-black'>Collaborate</span></h3>
-                            <div>
-                                <p className='my-3 text-xl text-gray-600 font-semibold'>We can collaborate with your existing tech team to scale existing software applications or design customized software applications that suits your everyday need and simplifies various processes.</p>
+                        <div className="md:w-1/2 mt-6 md:mt-0">
+                            <h3 className="text-2xl font-bold text-green-800 mb-4">다조리 (多助利, 건강365) - 약쑥 좌훈 겸용 비데기</h3>
+                            <p className="text-lg text-gray-700 mb-4">
+                                전 세계적으로 현존 비데기능에는 물로 세척하는 기능만이 있고 좌훈기능은 없습니다.
+                            </p>
+                            <p className="text-lg text-gray-700 mb-4">
+                                본 제품은 국내외 특허등록에 의한 한방좌훈과 일반 비데기능이 겸비된 신개념 기능성 대기로서 다음과 같은 효과를 일괄적으로 만끽할 수 있습니다:
+                            </p>
+                            <ul className="list-disc list-inside text-lg text-gray-700 mb-4">
+                                <li>여성들의 위생기구, 냉 대하, 질염, 가려움증, 산후조리, 요실금 기타 말 못할 고민해결에 큰 도움을 주며.</li>
+                                <li>남 여 공히 항문질환 예방 및 치유.</li>
+                                <li>대부분 노년남성들의 고민인 전립선의 탁월한 효과와 남성 건강욕구에도 아주 좋다.</li>
+                                <li>회음부에 한방 온열효과로 괴변은 물론 경쾌한 하루를 시작할 수 있다.</li>
+                            </ul>
+                            <p className="text-lg text-gray-700 mb-4">
+                                우리나라 인삼이 세계적으로 효능이 특효하듯이 우리나라의 서해 해안가에서 자생하는 약쑥을 비롯하여 효능이 특효한 식물이 많습니다.
+                            </p>
+                            <p className="text-lg text-gray-700 mb-4">
+                                이제 우리나라만의 고유의 건강 생활가전 제품으로서 글로벌적인 상품으로 발전시켜 인류 건강사회를 이룩하는데 미력하나마 도움을 기하고자 합니다.
+                            </p>
+                            <p className="text-lg text-gray-700 mb-4">
+                                약쑥과 관련된 업종에 장인정신으로 약 40여년간 종사하여 오면서 80여건 이상의 특허 출원 중 현재 지적 재산권을 보유하고 있습니다.
+                            </p>
+                            <div className="mt-6 bg-green-100 border-l-4 border-green-500 text-green-700 p-4" role="alert">
+                                <p className="font-bold">특허 정보</p>
+                                <p>국내: 특허4건, 디자인1건, 상표2건.</p>
+                                <p>해외: 일본, 미국, 러시아, 인도, 특허등록 존속 보유.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <section className="bg-gray-50 py-12">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl font-bold text-center text-green-800 mb-8">약쑥(아로마) 홈 사우나기</h2>
+
+                    <div className="bg-white p-8 rounded-lg shadow-xl">
+                        <div className="grid md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h3 className="text-2xl font-semibold text-green-700 mb-4">개요 및 효과</h3>
+                                <ul className="list-disc list-inside space-y-2 text-gray-700">
+                                    <li>{emphasizeText('코로나의 장기로 대중목욕탕 기피현상.')}</li>
+                                    <li>{emphasizeText('각 가정에서 편리한 시간대에 약쑥 홈 사우나기로 간편하고 위생적으로, 안락하게 약용 사우나를 즐길 수 있다.')}</li>
+                                    <li>{emphasizeText('우리나라만의 특효한 약쑥을 활용한 약쑥좌훈 비데기와 함께 해외시장 개척에 주력하면 시너지 효과가 높을 것으로 예상.')}</li>
+                                    <li>{emphasizeText('약용작물 재배로 농가소득 배가.')}</li>
+                                    <li>{emphasizeText('노약자와 거동이 불편한 (예: 지체장애인협회 등록된 정회원 40만명)지체장애인들의 대중 목욕시설 기피 해소.')}</li>
+                                    <li>{emphasizeText('목욕시설이 열악한 농,어촌의 긴요한 제품.')}</li>
+                                </ul>
+
+                                <br>
+                                </br>
+
+                                <div className="mb-8">
+                                    <h3 className="text-2xl font-semibold text-green-700 mb-4">마케팅 전략</h3>
+                                    <p className="text-gray-700 mb-4">
+                                        <strong>국내:</strong> {emphasizeText('"약쑥 훈증 겸용 비데기"에 이어 출시하고자 하는 "포터블식 한방 홈 사우나기"의 두 모델은 세계 최초 개발된 제품들로 홈 쇼핑에 기획상품으로 시판하여 광고의 효과를 도모하면서 온라인과 판촉을 병행할 것이며 한국 장애 경제인 연합회와 연합하여 사회적 기업으로 별도의 영업계획으로 진행하고자 합니다.')}
+                                    </p>
+                                    <p className="text-gray-700">
+                                        <strong>해외:</strong> {emphasizeText('우선적으로 우리나라 한방의학의 인지도가 높은 일본시장부터 온라인을 통하여 적극적으로 홍보하며, 시장을 점유하면서 다음 단계의 해외 시장을 개척해 나가고자 합니다.')}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                                <img src={saunaImage1} alt="홈 사우나기 이미지 1" className="rounded-lg shadow-md" />
+                                <img src={saunaImage2} alt="홈 사우나기 이미지 2" className="rounded-lg shadow-md" />
+                                <img src={saunaImage3} alt="홈 사우나기 이미지 3" className="rounded-lg shadow-md" />
+                                <img src={saunaImage4} alt="홈 사우나기 이미지 4" className="rounded-lg shadow-md" />
+                            </div>
+                        </div>
+
+
+
+                        <ProductComparisonTable />
+                    </div>
+                </div>
+            </section>
         </div>
-    )
+    );
 }
 
 export default Services;
